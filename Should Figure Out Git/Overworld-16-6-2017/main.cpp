@@ -16,13 +16,11 @@
 
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include <vector>
 
 // Here is a small helper for you! Have a look.
 #include "ResourcePath.hpp"
 #include "player.hpp"
 #include "npc.hpp"
-
 
 float SCALE = 1;
 const float WINDOW_WIDTH = 768*SCALE;
@@ -33,7 +31,18 @@ const int RESOLUTION = 64*SCALE;
 
 int main(int, char const**)
 {
-    std::vector< std::vector<player*> > spritemap(TILE_WIDTH, std::vector<player*>(TILE_HEIGHT));
+    
+    sf::Vector2f GridCoord[TILE_WIDTH][TILE_HEIGHT];
+    for (int i =0; i<TILE_WIDTH; i++)
+    {
+        for (int j=0; j<TILE_HEIGHT; j++)
+        {
+            GridCoord[i][j].x = i*RESOLUTION;
+            GridCoord[i][j].y = j*RESOLUTION;
+        }
+    }
+
+    std::string map[TILE_WIDTH][TILE_HEIGHT];
 
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "SFML window");
@@ -45,34 +54,23 @@ int main(int, char const**)
     }
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 
-    // Load background for map
-    sf::Texture maptexture;
-    if (!maptexture.loadFromFile(resourcePath() + "vertsea.png")) {
+    // Load a sprite to display
+    sf::Texture texture;
+    if (!texture.loadFromFile(resourcePath() + "vertsea.png")) {
         return EXIT_FAILURE;
     }
-    sf::Sprite background(maptexture);
+    sf::Sprite sprite(texture);
     float a= SCALE*(13*.5/3);
-    background.scale(a, a);
+    sprite.scale(a, a);
 
     // Create a graphical text to display
     sf::Font font;
     if (!font.loadFromFile(resourcePath() + "sansation.ttf")) {
         return EXIT_FAILURE;
     }
-    
-    sf::RectangleShape textboxbackground;
-    textboxbackground.setFillColor(sf::Color::Black);
-    sf::Vector2f textboxsize;
-    textboxsize.x=WINDOW_WIDTH;
-    textboxsize.y=2*RESOLUTION;
-    textboxbackground.setSize(textboxsize);
-    textboxbackground.setPosition(0, (TILE_HEIGHT - 2)*RESOLUTION);
-    
-    sf::Text text("Cannot enter buildings yet. Working on it.", font, RESOLUTION/2);
+    sf::Text text("It is not a story that the Jedi would tell you.", font, 32);
     text.setFillColor(sf::Color::Red);
-    text.setPosition(2*RESOLUTION, (TILE_HEIGHT - 2)*RESOLUTION);
-    
-    sf::Vector2f trigger (3*RESOLUTION, 3*RESOLUTION);
+    text.setPosition(0, 1*64);
     
     // Load a music to play
     sf::Music music;
@@ -81,10 +79,10 @@ int main(int, char const**)
     }
     
     // Create the Player Character
-    player one(WINDOW_WIDTH, WINDOW_HEIGHT, &spritemap, 3, 6);
+    player one(WINDOW_WIDTH, WINDOW_HEIGHT);
     
-    //create npc
-    player npc(WINDOW_WIDTH, WINDOW_HEIGHT, &spritemap, 5, 5);
+    //create npc (NEED TO USE DIFFERENT SPRITE IN FUTURE)
+    sf::Sprite two(texture);
     
     // Play the music
     //music.play();
@@ -106,56 +104,38 @@ int main(int, char const**)
                 window.close();
             }
             
-            //Basic character movement from WASD
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::W) {
-                
-                one.move(0, -1, &spritemap);
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up) {
+                one.move(0, -1);
             }
             
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S) {
-                one.move(0, 1, &spritemap);
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down) {
+                one.move(0, 1);
             }
             
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::A) {
-                one.move(-1, 0, &spritemap);
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Right) {
+                one.move(1, 0);
             }
             
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::D) {
-                one.move(1, 0, &spritemap);
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Left) {
+                one.move(-1, 0);
             }
             
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Return){
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::RShift) {
+                one.moveto(GridCoord[6][5]);
             }
         }
 
         // Clear screen
         window.clear();
 
-        // Draw the background
-        window.draw(background);
-        
-        for (int y = 0; y < TILE_WIDTH; y++){
-            for (int x = 0; x < TILE_HEIGHT; x++){
-                if (spritemap[x][y] != nullptr){
-                    spritemap[x][y]->draw(window);
-                }
-            }
-        }
-            
+        // Draw the sprite
+        window.draw(sprite);
         
         // Draw the player
-        //one.draw(window);
-        
-        // Draw the npc
-        //npc.draw(window);
+        window.draw(one.getcharsprite());
 
         // Draw the string
-        //If location of player is (3,3), draw the string, with a textbox behind it.
-        if(spritemap[3][3] == &one){
-            window.draw(textboxbackground);
-            window.draw(one.getheadsprite());
-            window.draw(text);
-        }
+        window.draw(text);
         
         //draw test two
         //window.draw(two);

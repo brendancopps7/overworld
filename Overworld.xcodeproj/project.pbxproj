@@ -13,11 +13,16 @@
 		C69402931E0E5A1D001EAF9C /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = C69402921E0E5A1D001EAF9C /* nice_music.ogg */; };
 		C69402951E0E5A1D001EAF9C /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C69402941E0E5A1D001EAF9C /* sansation.ttf */; };
 		C69402971E0E5A1D001EAF9C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C69402961E0E5A1D001EAF9C /* icon.png */; };
+		C694029F1E0E5C0E001EAF9C /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C694029D1E0E5C0E001EAF9C /* player.cpp */; };
+		C69402A51E1E1FB7001EAF9C /* vertsea.png in Resources */ = {isa = PBXBuildFile; fileRef = C69402A41E1E1FB7001EAF9C /* vertsea.png */; };
+		C69402AA1E218B2B001EAF9C /* sprite_1.png in Resources */ = {isa = PBXBuildFile; fileRef = C69402A91E218B2B001EAF9C /* sprite_1.png */; };
+		C6BF562D1EF499130042F98F /* npc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6BF562B1EF499130042F98F /* npc.cpp */; };
+		C6BF56311EF4BF4B0042F98F /* vertsea 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BF56301EF4BF4B0042F98F /* vertsea 1.png */; };
+		C6BF56341EF742D00042F98F /* textbox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6BF56321EF742D00042F98F /* textbox.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C69402851E0E5A1C001EAF9C /* Overworld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overworld.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C69402891E0E5A1D001EAF9C /* Overworld-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Overworld-Info.plist"; sourceTree = "<group>"; };
 		C694028A1E0E5A1D001EAF9C /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		C694028C1E0E5A1D001EAF9C /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		C694028D1E0E5A1D001EAF9C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -25,6 +30,15 @@
 		C69402921E0E5A1D001EAF9C /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		C69402941E0E5A1D001EAF9C /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		C69402961E0E5A1D001EAF9C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		C694029D1E0E5C0E001EAF9C /* player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
+		C694029E1E0E5C0E001EAF9C /* player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = player.hpp; sourceTree = "<group>"; };
+		C69402A41E1E1FB7001EAF9C /* vertsea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vertsea.png; sourceTree = "<group>"; };
+		C69402A91E218B2B001EAF9C /* sprite_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite_1.png; sourceTree = "<group>"; };
+		C6BF562B1EF499130042F98F /* npc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = npc.cpp; sourceTree = "<group>"; };
+		C6BF562C1EF499130042F98F /* npc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = npc.hpp; sourceTree = "<group>"; };
+		C6BF56301EF4BF4B0042F98F /* vertsea 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vertsea 1.png"; sourceTree = "<group>"; };
+		C6BF56321EF742D00042F98F /* textbox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textbox.cpp; sourceTree = "<group>"; };
+		C6BF56331EF742D00042F98F /* textbox.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textbox.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,25 +74,25 @@
 				C694028A1E0E5A1D001EAF9C /* ResourcePath.mm */,
 				C694028C1E0E5A1D001EAF9C /* ResourcePath.hpp */,
 				C694028D1E0E5A1D001EAF9C /* main.cpp */,
+				C6BF56321EF742D00042F98F /* textbox.cpp */,
+				C6BF56331EF742D00042F98F /* textbox.hpp */,
+				C6BF562B1EF499130042F98F /* npc.cpp */,
+				C6BF562C1EF499130042F98F /* npc.hpp */,
+				C694029D1E0E5C0E001EAF9C /* player.cpp */,
+				C694029E1E0E5C0E001EAF9C /* player.hpp */,
 				C694028F1E0E5A1D001EAF9C /* Resources */,
-				C69402881E0E5A1D001EAF9C /* Supporting Files */,
 			);
 			path = Overworld;
-			sourceTree = "<group>";
-		};
-		C69402881E0E5A1D001EAF9C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C69402891E0E5A1D001EAF9C /* Overworld-Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C694028F1E0E5A1D001EAF9C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C6BF56301EF4BF4B0042F98F /* vertsea 1.png */,
+				C69402A91E218B2B001EAF9C /* sprite_1.png */,
 				C69402901E0E5A1D001EAF9C /* cute_image.jpg */,
 				C69402921E0E5A1D001EAF9C /* nice_music.ogg */,
+				C69402A41E1E1FB7001EAF9C /* vertsea.png */,
 				C69402941E0E5A1D001EAF9C /* sansation.ttf */,
 				C69402961E0E5A1D001EAF9C /* icon.png */,
 			);
@@ -143,7 +157,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C69402AA1E218B2B001EAF9C /* sprite_1.png in Resources */,
 				C69402971E0E5A1D001EAF9C /* icon.png in Resources */,
+				C6BF56311EF4BF4B0042F98F /* vertsea 1.png in Resources */,
+				C69402A51E1E1FB7001EAF9C /* vertsea.png in Resources */,
 				C69402951E0E5A1D001EAF9C /* sansation.ttf in Resources */,
 				C69402931E0E5A1D001EAF9C /* nice_music.ogg in Resources */,
 				C69402911E0E5A1D001EAF9C /* cute_image.jpg in Resources */,
@@ -175,6 +192,9 @@
 			files = (
 				C694028E1E0E5A1D001EAF9C /* main.cpp in Sources */,
 				C694028B1E0E5A1D001EAF9C /* ResourcePath.mm in Sources */,
+				C6BF562D1EF499130042F98F /* npc.cpp in Sources */,
+				C6BF56341EF742D00042F98F /* textbox.cpp in Sources */,
+				C694029F1E0E5C0E001EAF9C /* player.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +326,7 @@
 				C694029C1E0E5A1D001EAF9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
