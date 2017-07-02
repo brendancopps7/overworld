@@ -18,13 +18,13 @@
 //    sf::Vector2f size;
 //    sf::RectangleShape background;
     
-textbox::textbox(int tileheight, int tilewidth, int resolution){
+textbox::textbox(int tilewidth, int tileheight, int resolution){
     TILE_WIDTH = tilewidth;
     TILE_HEIGHT = tileheight;
     RESOLUTION = resolution;
     background.setFillColor(sf::Color::Black);
     size.x = TILE_WIDTH*RESOLUTION;
-    size.y = TILE_HEIGHT*RESOLUTION;
+    size.y = 2*RESOLUTION;
     background.setSize(size);
     background.setPosition(0, (TILE_HEIGHT - 2)*RESOLUTION);
     }
@@ -36,6 +36,11 @@ void textbox::setText(std::string text){
     
     }
 
+bool textbox::isVisible()
+{
+    return visible;
+}
+
 std::string textbox::getText(){
     
     }
@@ -43,7 +48,10 @@ std::string textbox::getText(){
 void textbox::draw(sf::RenderWindow & window){
     window.draw(background);
 }
-    
+
+void textbox::makeVisible(){
+    visible = true;
+}
     
     
     

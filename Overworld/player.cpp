@@ -58,6 +58,10 @@ sf::Vector2f player::getposition(){
     return pos;
 }
 
+std::string player::gettext(){
+    return "Here is some text";
+}
+
 void player::move(float xchange, float ychange, std::vector< std::vector<player*> >* spritemap){
     //Generate newx and newy
     int newx=x+xchange*64;
@@ -81,6 +85,8 @@ void player::move(float xchange, float ychange, std::vector< std::vector<player*
         charsprite.setPosition(newx, newy);
         x=newx;
         y=newy;
+        direction.x = xchange;
+        direction.y = ychange;
         spritemap->at((x-xoffset)/64).at((y-yoffset)/64) = this;
     }
     //Else do something?
@@ -91,6 +97,16 @@ void player::moveto(sf::Vector2f coord){
     y=(coord.y * 64) + yoffset;
     charsprite.setPosition(x, y);
 };
+
+/*void player::talk(textbox *text, std::vector< std::vector<player*> >* spritemap){
+    int testx = ((x-xoffset)/64)+direction.x;
+    int testy = ((y-yoffset)/64)+direction.y;
+    if(spritemap->at(testx).at(testy) != nullptr)
+       {
+           text->setText(spritemap->at(testx).at(testy)->gettext());
+           text->makeVisible();
+       }
+}*/
 
 void player::draw(sf::RenderWindow & window){
     window.draw(charsprite);

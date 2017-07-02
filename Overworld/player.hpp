@@ -22,6 +22,7 @@ private:
     float y;
     float xoffset;
     float yoffset;
+    sf::Vector2f direction;
     sf::Sprite charsprite;
     sf::Sprite headsprite;
     sf::Texture chartexture;
@@ -31,8 +32,10 @@ public:
     sf::Sprite getcharsprite();
     sf::Sprite getheadsprite();
     sf::Vector2f getposition();
+    std::string gettext();
     void move(float xchange, float ychange, std::vector< std::vector<player*> >* spritemap);
     void moveto(sf::Vector2f coord);
+    //void talk(textbox *text, std::vector< std::vector<player*> >* spritemap);
     void draw(sf::RenderWindow & window);
     
     

@@ -19,6 +19,7 @@ private:
     int TILE_WIDTH;
     int TILE_HEIGHT;
     int RESOLUTION;
+    bool visible;
     sf::Vector2f size;
     sf::RectangleShape background;
     
@@ -28,8 +29,10 @@ public:
     textbox(int tileheight, int tilewidth, int resolution);
     void setHeadSprite(sf::Sprite & headsprite);
     void setText(std::string text);
+    bool isVisible();
     std::string getText();
     void draw(sf::RenderWindow & window);
+    void makeVisible();
     
     
     

@@ -20,8 +20,8 @@
 
 // Here is a small helper for you! Have a look.
 #include "ResourcePath.hpp"
+#include "textbox.hpp"
 #include "player.hpp"
-#include "npc.hpp"
 
 
 float SCALE = 1;
@@ -69,8 +69,10 @@ int main(int, char const**)
     textboxbackground.setPosition(0, (TILE_HEIGHT - 2)*RESOLUTION);
     
     sf::Text text("Cannot enter buildings yet. Working on it.", font, RESOLUTION/2);
-    text.setFillColor(sf::Color::Red);
+    text.setFillColor(sf::Color::White);
     text.setPosition(2*RESOLUTION, (TILE_HEIGHT - 2)*RESOLUTION);
+    
+    //textbox text1(TILE_WIDTH, TILE_HEIGHT, RESOLUTION);
     
     sf::Vector2f trigger (3*RESOLUTION, 3*RESOLUTION);
     
@@ -125,6 +127,7 @@ int main(int, char const**)
             }
             
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Return){
+                //one.talk(&text1, &spritemap);
             }
         }
 
