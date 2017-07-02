@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
+#include "textbox.hpp"
+
 
 class player {
     
@@ -35,7 +37,7 @@ public:
     std::string gettext();
     void move(float xchange, float ychange, std::vector< std::vector<player*> >* spritemap);
     void moveto(sf::Vector2f coord);
-    //void talk(textbox *text, std::vector< std::vector<player*> >* spritemap);
+    void talk(textbox *text, std::vector< std::vector<player*> >* spritemap);
     void draw(sf::RenderWindow & window);
     
     

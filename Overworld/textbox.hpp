@@ -20,6 +20,7 @@ private:
     int TILE_HEIGHT;
     int RESOLUTION;
     bool visible;
+    sf::Text text;
     sf::Vector2f size;
     sf::RectangleShape background;
     

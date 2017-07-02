@@ -20,7 +20,7 @@
 
 // Here is a small helper for you! Have a look.
 #include "ResourcePath.hpp"
-#include "textbox.hpp"
+//#include "textbox.hpp"
 #include "player.hpp"
 
 
@@ -55,10 +55,7 @@ int main(int, char const**)
     background.scale(a, a);
 
     // Create a graphical text to display
-    sf::Font font;
-    if (!font.loadFromFile(resourcePath() + "sansation.ttf")) {
-        return EXIT_FAILURE;
-    }
+    
     
     sf::RectangleShape textboxbackground;
     textboxbackground.setFillColor(sf::Color::Black);
@@ -68,11 +65,11 @@ int main(int, char const**)
     textboxbackground.setSize(textboxsize);
     textboxbackground.setPosition(0, (TILE_HEIGHT - 2)*RESOLUTION);
     
-    sf::Text text("Cannot enter buildings yet. Working on it.", font, RESOLUTION/2);
+    /*sf::Text text("Cannot enter buildings yet. Working on it.", font, RESOLUTION/2);
     text.setFillColor(sf::Color::White);
-    text.setPosition(2*RESOLUTION, (TILE_HEIGHT - 2)*RESOLUTION);
+    text.setPosition(2*RESOLUTION, (TILE_HEIGHT - 2)*RESOLUTION);*/
     
-    //textbox text1(TILE_WIDTH, TILE_HEIGHT, RESOLUTION);
+    textbox text1(TILE_WIDTH, TILE_HEIGHT, RESOLUTION);
     
     sf::Vector2f trigger (3*RESOLUTION, 3*RESOLUTION);
     
@@ -157,7 +154,7 @@ int main(int, char const**)
         if(spritemap[3][3] == &one){
             window.draw(textboxbackground);
             window.draw(one.getheadsprite());
-            window.draw(text);
+            text1.draw(window);
         }
         
         //draw test two

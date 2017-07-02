@@ -98,7 +98,7 @@ void player::moveto(sf::Vector2f coord){
     charsprite.setPosition(x, y);
 };
 
-/*void player::talk(textbox *text, std::vector< std::vector<player*> >* spritemap){
+void player::talk(textbox *text, std::vector< std::vector<player*> >* spritemap){
     int testx = ((x-xoffset)/64)+direction.x;
     int testy = ((y-yoffset)/64)+direction.y;
     if(spritemap->at(testx).at(testy) != nullptr)
@@ -106,7 +106,7 @@ void player::moveto(sf::Vector2f coord){
            text->setText(spritemap->at(testx).at(testy)->gettext());
            text->makeVisible();
        }
-}*/
+}
 
 void player::draw(sf::RenderWindow & window){
     window.draw(charsprite);
