@@ -49,8 +49,8 @@ sf::Sprite player::getcharsprite(){
     return charsprite;
 }
 
-sf::Sprite player::getheadsprite(){
-    return headsprite;
+sf::Sprite* player::getheadsprite(){
+    return &headsprite;
 }
 
 sf::Vector2f player::getposition(){
@@ -104,6 +104,7 @@ void player::talk(textbox *text, std::vector< std::vector<player*> >* spritemap)
     if(spritemap->at(testx).at(testy) != nullptr)
        {
            text->setText(spritemap->at(testx).at(testy)->gettext());
+           text->setHeadSprite(spritemap->at(testx).at(testy)->getheadsprite());
            text->makeVisible();
        }
 }

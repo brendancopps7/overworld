@@ -32,7 +32,7 @@ private:
 public:
     player(float width, float height, std::vector< std::vector<player*> >* spritemap, int x_, int y_);
     sf::Sprite getcharsprite();
-    sf::Sprite getheadsprite();
+    sf::Sprite* getheadsprite();
     sf::Vector2f getposition();
     std::string gettext();
     void move(float xchange, float ychange, std::vector< std::vector<player*> >* spritemap);

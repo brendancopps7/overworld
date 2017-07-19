@@ -20,20 +20,23 @@ private:
     int TILE_HEIGHT;
     int RESOLUTION;
     bool visible;
+    sf::Font font;
     sf::Text text;
     sf::Vector2f size;
     sf::RectangleShape background;
+    sf::Sprite *CurrentHeadSprite;
     
     
     
 public:
     textbox(int tileheight, int tilewidth, int resolution);
-    void setHeadSprite(sf::Sprite & headsprite);
+    void setHeadSprite(sf::Sprite* headsprite);
     void setText(std::string text);
     bool isVisible();
     std::string getText();
     void draw(sf::RenderWindow & window);
     void makeVisible();
+    void makeInvisible();
     
     
     

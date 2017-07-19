@@ -69,7 +69,7 @@ int main(int, char const**)
     text.setFillColor(sf::Color::White);
     text.setPosition(2*RESOLUTION, (TILE_HEIGHT - 2)*RESOLUTION);*/
     
-    textbox text1(TILE_WIDTH, TILE_HEIGHT, RESOLUTION);
+    textbox text(TILE_WIDTH, TILE_HEIGHT, RESOLUTION);
     
     sf::Vector2f trigger (3*RESOLUTION, 3*RESOLUTION);
     
@@ -85,6 +85,8 @@ int main(int, char const**)
     //create npc
     player npc(WINDOW_WIDTH, WINDOW_HEIGHT, &spritemap, 5, 5);
     
+    
+    text.setHeadSprite(one.getheadsprite());
     // Play the music
     //music.play();
 
@@ -152,10 +154,14 @@ int main(int, char const**)
         // Draw the string
         //If location of player is (3,3), draw the string, with a textbox behind it.
         if(spritemap[3][3] == &one){
-            window.draw(textboxbackground);
-            window.draw(one.getheadsprite());
-            text1.draw(window);
+            text.makeVisible();
         }
+        else{
+            text.makeInvisible();
+        }
+        
+        text.draw(window);
+        //window.draw(one.getheadsprite());
         
         //draw test two
         //window.draw(two);
