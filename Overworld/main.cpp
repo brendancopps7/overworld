@@ -23,6 +23,8 @@
 //#include "textbox.hpp"
 #include "player.hpp"
 
+int overworld(int location, sf::RenderWindow & window);
+
 
 float SCALE = 1;
 const float WINDOW_WIDTH = 768*SCALE;
@@ -33,17 +35,27 @@ const int RESOLUTION = 64*SCALE;
 
 int main(int, char const**)
 {
-    std::vector< std::vector<player*> > spritemap(TILE_WIDTH, std::vector<player*>(TILE_HEIGHT));
-
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "SFML window");
-
+    
     // Set the Icon
     sf::Image icon;
     if (!icon.loadFromFile(resourcePath() + "icon.png")) {
         return EXIT_FAILURE;
     }
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+    
+    int location;
+    while (location != 0){
+        location = overworld(location, window);
+    }
+    
+    return EXIT_SUCCESS;
+}
+
+int overworld(int location, sf::RenderWindow & window)
+{
+    std::vector< std::vector<player*> > spritemap(TILE_WIDTH, std::vector<player*>(TILE_HEIGHT));
 
     // Load background for map
     sf::Texture maptexture;
@@ -143,13 +155,6 @@ int main(int, char const**)
                 }
             }
         }
-            
-        
-        // Draw the player
-        //one.draw(window);
-        
-        // Draw the npc
-        //npc.draw(window);
 
         // Draw the string
         //If location of player is (3,3), draw the string, with a textbox behind it.
@@ -157,18 +162,17 @@ int main(int, char const**)
             text.makeVisible();
         }
         else{
-            text.makeInvisible();
+            if(text.isVisible())
+            {
+                text.makeInvisible();
+            }
         }
         
         text.draw(window);
-        //window.draw(one.getheadsprite());
-        
-        //draw test two
-        //window.draw(two);
 
         // Update the window
         window.display();
     }
 
-    return EXIT_SUCCESS;
+    return 0;
 }
