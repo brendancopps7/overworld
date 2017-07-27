@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C650F5831F23B53D00F4AF87 /* fighter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C650F5811F23B53D00F4AF87 /* fighter.cpp */; };
 		C694028B1E0E5A1D001EAF9C /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C694028A1E0E5A1D001EAF9C /* ResourcePath.mm */; };
 		C694028E1E0E5A1D001EAF9C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C694028D1E0E5A1D001EAF9C /* main.cpp */; };
 		C69402911E0E5A1D001EAF9C /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C69402901E0E5A1D001EAF9C /* cute_image.jpg */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C650F5811F23B53D00F4AF87 /* fighter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fighter.cpp; sourceTree = "<group>"; };
+		C650F5821F23B53D00F4AF87 /* fighter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = fighter.hpp; sourceTree = "<group>"; };
 		C69402851E0E5A1C001EAF9C /* Overworld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overworld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C694028A1E0E5A1D001EAF9C /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		C694028C1E0E5A1D001EAF9C /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
@@ -80,6 +83,8 @@
 				C6BF562C1EF499130042F98F /* npc.hpp */,
 				C694029D1E0E5C0E001EAF9C /* player.cpp */,
 				C694029E1E0E5C0E001EAF9C /* player.hpp */,
+				C650F5811F23B53D00F4AF87 /* fighter.cpp */,
+				C650F5821F23B53D00F4AF87 /* fighter.hpp */,
 				C694028F1E0E5A1D001EAF9C /* Resources */,
 			);
 			path = Overworld;
@@ -193,6 +198,7 @@
 				C694028E1E0E5A1D001EAF9C /* main.cpp in Sources */,
 				C694028B1E0E5A1D001EAF9C /* ResourcePath.mm in Sources */,
 				C6BF562D1EF499130042F98F /* npc.cpp in Sources */,
+				C650F5831F23B53D00F4AF87 /* fighter.cpp in Sources */,
 				C6BF56341EF742D00042F98F /* textbox.cpp in Sources */,
 				C694029F1E0E5C0E001EAF9C /* player.cpp in Sources */,
 			);

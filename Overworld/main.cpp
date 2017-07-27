@@ -22,21 +22,25 @@
 #include "ResourcePath.hpp"
 //#include "textbox.hpp"
 #include "player.hpp"
+#include "fighter.hpp"
 
-int overworld(int location, sf::RenderWindow & window);
+
+int overworld(sf::RenderWindow &window, int location);
+void fighting(sf::RenderWindow &window);
 
 
 float SCALE = 1;
-const float WINDOW_WIDTH = 768*SCALE;
-const float WINDOW_HEIGHT = 640*SCALE;
-const int TILE_WIDTH = 12;
-const int TILE_HEIGHT = 10;
+const float WINDOW_WIDTH = 64*15*SCALE;
+const float WINDOW_HEIGHT = 64*11*SCALE;
+const int TILE_WIDTH = WINDOW_WIDTH/64;
+const int TILE_HEIGHT = WINDOW_HEIGHT/64;
 const int RESOLUTION = 64*SCALE;
 
 int main(int, char const**)
 {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "SFML window");
+    window.setFramerateLimit(60);
     
     // Set the Icon
     sf::Image icon;
@@ -47,13 +51,13 @@ int main(int, char const**)
     
     int location;
     while (location != 0){
-        location = overworld(location, window);
+        location = overworld(window, location);
     }
     
     return EXIT_SUCCESS;
 }
 
-int overworld(int location, sf::RenderWindow & window)
+int overworld(sf::RenderWindow &window, int location)
 {
     std::vector< std::vector<player*> > spritemap(TILE_WIDTH, std::vector<player*>(TILE_HEIGHT));
 
@@ -148,8 +152,8 @@ int overworld(int location, sf::RenderWindow & window)
         // Draw the background
         window.draw(background);
         
-        for (int y = 0; y < TILE_WIDTH; y++){
-            for (int x = 0; x < TILE_HEIGHT; x++){
+        for (int y = 0; y < TILE_HEIGHT; y++){
+            for (int x = 0; x < TILE_WIDTH; x++){
                 if (spritemap[x][y] != nullptr){
                     spritemap[x][y]->draw(window);
                 }
@@ -160,12 +164,18 @@ int overworld(int location, sf::RenderWindow & window)
         //If location of player is (3,3), draw the string, with a textbox behind it.
         if(spritemap[3][3] == &one){
             text.makeVisible();
+            fighting(window);
         }
         else{
             if(text.isVisible())
             {
                 text.makeInvisible();
             }
+        }
+        
+        if(spritemap[6][6] == &one){
+            fighting(window);
+            return 0;
         }
         
         text.draw(window);
@@ -175,4 +185,77 @@ int overworld(int location, sf::RenderWindow & window)
     }
 
     return 0;
+}
+
+void fighting(sf::RenderWindow &window){
+    sf::Clock clock;
+    
+    sf::Texture maptexture;
+    if (!maptexture.loadFromFile(resourcePath() + "cute_image.jpg")) {
+        return EXIT_FAILURE;
+    }
+    sf::Sprite background(maptexture);
+    float a= SCALE*(13*.5/3);
+    background.scale(a, a);
+    
+    fighter one(WINDOW_WIDTH, WINDOW_HEIGHT);
+    
+    
+    while (window.isOpen())
+    {
+        float elapsedTime = clock.restart().asSeconds();
+        one.update(elapsedTime);
+        
+        // Process events
+        sf::Event event;
+        
+        float direction;
+        
+        while (window.pollEvent(event))
+        {
+            // Close window: exit
+            if (event.type == sf::Event::Closed) {
+                window.close();
+            }
+            
+            // Escape pressed: exit
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
+                window.close();
+            }
+            
+            //Basic character movement from A,D,Space
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::A) {
+                one.walk(-1);
+            }
+            
+            if(event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::A) {
+                one.slowing();
+            }
+            
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::D) {
+                one.walk(1);
+            }
+            
+            if(event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::D) {
+                one.slowing();
+            }
+            
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space){
+                one.jump();
+            }
+        }
+        
+        
+        // Clear screen
+        window.clear();
+        
+        // Draw the background
+        window.draw(background);
+        
+        one.draw(window);
+        
+        // Update the window
+        window.display();
+    }
+    
 }
