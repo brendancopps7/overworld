@@ -209,8 +209,6 @@ void fighting(sf::RenderWindow &window){
         // Process events
         sf::Event event;
         
-        float direction;
-        
         while (window.pollEvent(event))
         {
             // Close window: exit
@@ -226,6 +224,7 @@ void fighting(sf::RenderWindow &window){
             //Basic character movement from A,D,Space
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::A) {
                 one.walk(-1);
+                one.setDirection(left);
             }
             
             if(event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::A) {
@@ -234,27 +233,42 @@ void fighting(sf::RenderWindow &window){
             
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::D) {
                 one.walk(1);
+                one.setDirection(right);
             }
             
             if(event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::D) {
                 one.slowing();
             }
             
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space){
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
                 one.jump();
             }
             
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::J) {
-                one.shoot();
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::W) {
+                one.setDirection(up);
             }
             
-            if(event.type == sf::Event::MouseMoved){
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::S) {
+                one.setDirection(down);
+            }
+            
+            //Aiming triggers on left click, mouse movement or J
+            if((event.type == sf::Event::MouseMoved) ||
+               (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) ||
+               (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::J)){
                 one.aim(sf::Mouse::getPosition(window));
             }
             
-            if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left){
-                one.aim(sf::Mouse::getPosition(window));
+            //Can shoot with J or left mouse click
+            if ((event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::J) ||
+                (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)){
                 one.shoot();
+            }
+            
+            //Can slash with K or right mouse click
+            if ((event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::K) ||
+                (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Right)) {
+                one.slash();
             }
             
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::LShift){

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C629C69A1F6A34B400BE74BE /* bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C629C6981F6A34B400BE74BE /* bullet.cpp */; };
+		C61D47F81FEE319600FD87E9 /* bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C61D47F61FEE319600FD87E9 /* bullet.cpp */; };
+		C61D47FA1FEF053000FD87E9 /* SwordSlashStandIn.png in Resources */ = {isa = PBXBuildFile; fileRef = C61D47F91FEF053000FD87E9 /* SwordSlashStandIn.png */; };
+		C61D47FD1FEF121400FD87E9 /* enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C61D47FB1FEF121400FD87E9 /* enemy.cpp */; };
 		C6363E8C1FEDB4F40061B63C /* PlayerStandIn.png in Resources */ = {isa = PBXBuildFile; fileRef = C6363E8B1FEDB4F40061B63C /* PlayerStandIn.png */; };
 		C6363E8E1FEDBEC90061B63C /* FighterStandIn.png in Resources */ = {isa = PBXBuildFile; fileRef = C6363E8D1FEDBEC90061B63C /* FighterStandIn.png */; };
 		C6363E901FEDC0120061B63C /* FighterArmStandIn.png in Resources */ = {isa = PBXBuildFile; fileRef = C6363E8F1FEDC0120061B63C /* FighterArmStandIn.png */; };
@@ -29,8 +31,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C629C6981F6A34B400BE74BE /* bullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bullet.cpp; sourceTree = "<group>"; };
-		C629C6991F6A34B400BE74BE /* bullet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = bullet.hpp; sourceTree = "<group>"; };
+		C61D47F61FEE319600FD87E9 /* bullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bullet.cpp; sourceTree = "<group>"; };
+		C61D47F71FEE319600FD87E9 /* bullet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = bullet.hpp; sourceTree = "<group>"; };
+		C61D47F91FEF053000FD87E9 /* SwordSlashStandIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SwordSlashStandIn.png; sourceTree = "<group>"; };
+		C61D47FB1FEF121400FD87E9 /* enemy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = enemy.cpp; sourceTree = "<group>"; };
+		C61D47FC1FEF121400FD87E9 /* enemy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = enemy.hpp; sourceTree = "<group>"; };
 		C6363E8B1FEDB4F40061B63C /* PlayerStandIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerStandIn.png; sourceTree = "<group>"; };
 		C6363E8D1FEDBEC90061B63C /* FighterStandIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FighterStandIn.png; sourceTree = "<group>"; };
 		C6363E8F1FEDC0120061B63C /* FighterArmStandIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FighterArmStandIn.png; sourceTree = "<group>"; };
@@ -88,7 +93,6 @@
 		C69402871E0E5A1D001EAF9C /* Overworld */ = {
 			isa = PBXGroup;
 			children = (
-				C6363E911FEE18B70061B63C /* Bullet.png */,
 				C694028A1E0E5A1D001EAF9C /* ResourcePath.mm */,
 				C694028C1E0E5A1D001EAF9C /* ResourcePath.hpp */,
 				C694028D1E0E5A1D001EAF9C /* main.cpp */,
@@ -98,8 +102,10 @@
 				C6BF562C1EF499130042F98F /* npc.hpp */,
 				C694029D1E0E5C0E001EAF9C /* player.cpp */,
 				C694029E1E0E5C0E001EAF9C /* player.hpp */,
-				C629C6981F6A34B400BE74BE /* bullet.cpp */,
-				C629C6991F6A34B400BE74BE /* bullet.hpp */,
+				C61D47F61FEE319600FD87E9 /* bullet.cpp */,
+				C61D47F71FEE319600FD87E9 /* bullet.hpp */,
+				C61D47FB1FEF121400FD87E9 /* enemy.cpp */,
+				C61D47FC1FEF121400FD87E9 /* enemy.hpp */,
 				C6FB3BED1F6B749A0033BDAB /* realtimesprite.cpp */,
 				C6FB3BEE1F6B749A0033BDAB /* realtimesprite.hpp */,
 				C650F5811F23B53D00F4AF87 /* fighter.cpp */,
@@ -112,8 +118,10 @@
 		C694028F1E0E5A1D001EAF9C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C6363E911FEE18B70061B63C /* Bullet.png */,
 				C6363E8D1FEDBEC90061B63C /* FighterStandIn.png */,
 				C6363E8B1FEDB4F40061B63C /* PlayerStandIn.png */,
+				C61D47F91FEF053000FD87E9 /* SwordSlashStandIn.png */,
 				C6BF56301EF4BF4B0042F98F /* vertsea 1.png */,
 				C69402A91E218B2B001EAF9C /* sprite_1.png */,
 				C6363E8F1FEDC0120061B63C /* FighterArmStandIn.png */,
@@ -187,6 +195,7 @@
 				C69402AA1E218B2B001EAF9C /* sprite_1.png in Resources */,
 				C69402971E0E5A1D001EAF9C /* icon.png in Resources */,
 				C6363E8C1FEDB4F40061B63C /* PlayerStandIn.png in Resources */,
+				C61D47FA1FEF053000FD87E9 /* SwordSlashStandIn.png in Resources */,
 				C6BF56311EF4BF4B0042F98F /* vertsea 1.png in Resources */,
 				C6363E921FEE18B70061B63C /* Bullet.png in Resources */,
 				C69402A51E1E1FB7001EAF9C /* vertsea.png in Resources */,
@@ -221,11 +230,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C629C69A1F6A34B400BE74BE /* bullet.cpp in Sources */,
 				C694028E1E0E5A1D001EAF9C /* main.cpp in Sources */,
 				C694028B1E0E5A1D001EAF9C /* ResourcePath.mm in Sources */,
 				C6BF562D1EF499130042F98F /* npc.cpp in Sources */,
+				C61D47F81FEE319600FD87E9 /* bullet.cpp in Sources */,
 				C650F5831F23B53D00F4AF87 /* fighter.cpp in Sources */,
+				C61D47FD1FEF121400FD87E9 /* enemy.cpp in Sources */,
 				C6FB3BEF1F6B749A0033BDAB /* realtimesprite.cpp in Sources */,
 				C6BF56341EF742D00042F98F /* textbox.cpp in Sources */,
 				C694029F1E0E5C0E001EAF9C /* player.cpp in Sources */,

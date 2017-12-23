@@ -11,13 +11,19 @@
 #include <SFML/Graphics.hpp>
 #include "ResourcePath.hpp"
 #include <cmath>
+#include "bullet.hpp"
 
 fighter::fighter(float width, float height, sf::Vector2i mouseposition) {
+    //General Constants
     screenwidth = width;
     screenheight = height;
     charscale = 4;
+    
+    //Initial position
     x=0;
     y=screenheight*.75;
+    
+    //Draw and Position Character
     if (!chartexture.loadFromFile(resourcePath() + "FighterStandIn.png")) {
         return EXIT_FAILURE;
     }
@@ -25,6 +31,7 @@ fighter::fighter(float width, float height, sf::Vector2i mouseposition) {
     charsprite.setPosition(x, y);
     charsprite.scale(charscale, charscale);
     
+    //Draw and Position Arm
     if (!armtexture.loadFromFile(resourcePath() + "FighterArmStandIn.png")) {
         return EXIT_FAILURE;
     }
@@ -36,6 +43,17 @@ fighter::fighter(float width, float height, sf::Vector2i mouseposition) {
     armsprite.setPosition(x + xArmOffset + xArmAngleOffset, y + yArmOffset + yArmAngleOffset);
     aim(mouseposition);
     armsprite.scale(charscale, charscale);
+    
+    //Draw and Position Sword Slash
+    if(!swordslashtexture.loadFromFile(resourcePath() + "SwordSlashStandIn.png")) {
+        return EXIT_FAILURE;
+    }
+    swordslashsprite.setTexture(swordslashtexture);
+    swordslashsprite.setPosition(x + charsprite.getGlobalBounds().width, y);
+    swordslashsprite.scale(charscale, charscale);
+    //Current conditions
+    slashing = false;
+    slashtime = 0;
     xdirection = 0;
     grounded=true;
     slow=false;
@@ -47,6 +65,10 @@ void fighter::setXSpeed(float xdirection){
 
 void fighter::setYSpeed(float ydirection){
     yvelocity = ydirection;
+}
+
+void fighter::setDirection(direction facing_){
+    facing = facing_;
 }
 
 void fighter::walk(float direction){
@@ -65,6 +87,16 @@ void fighter::jump(){
 void fighter::shoot(){
     xvelocity += -10*aimx; //TODO: Change variable to be a call to weapon.power()
     yvelocity += -10*aimy;
+    bullets.push_back(new bullet(screenwidth, screenheight, x+xArmOffset, y+yArmOffset, aimx, aimy));
+    
+    return;
+}
+
+void fighter::slash(){
+    slashing = true;
+    if (!(slashtime < 10)){
+      slashtime = 0;
+    }
 }
 
 void fighter::slowing(){
@@ -110,11 +142,19 @@ void fighter::aim(sf::Vector2i direction){
     xArmAngleOffset = -4*2.5*(aimy);
     yArmAngleOffset = 4*2.5*(aimx);
     armsprite.setPosition(x + xArmOffset + xArmAngleOffset, y + yArmOffset + yArmAngleOffset);
+    
+    
 }
 
 void fighter::draw(sf::RenderWindow & window){
     window.draw(charsprite);
     window.draw(armsprite);
+    for (int i = 0; i < bullets.size(); i++) {
+        bullets[i]->draw(window);
+    }
+    if(slashing){
+        window.draw(swordslashsprite);
+    }
 };
 
 void fighter::update(float elapsedTime){
@@ -166,6 +206,41 @@ void fighter::update(float elapsedTime){
     //update sprite position
     charsprite.setPosition(x, y);
     armsprite.setPosition(x + xArmOffset + xArmAngleOffset, y + yArmOffset + yArmAngleOffset);
+    
+    //update sword slash position and angle
+    switch (facing) {
+        case right:
+            swordslashsprite.setPosition(x + charsprite.getGlobalBounds().width, y);
+            swordslashsprite.setRotation(0);
+            break;
+        case up:
+            swordslashsprite.setPosition(x, y);
+            swordslashsprite.setRotation(-90);
+            break;
+        case left:
+            swordslashsprite.setPosition(x, y + charsprite.getGlobalBounds().height);
+            swordslashsprite.setRotation(180);
+            break;
+        case down:
+            swordslashsprite.setPosition(x + charsprite.getGlobalBounds().width, y + charsprite.getGlobalBounds().height);
+            swordslashsprite.setRotation(90);
+            break;
+    }
+    
+    //update child bullets
+    for (int i =0; i<bullets.size(); i++) {
+        //while (bullets[i]->getToErase()) {
+            //bullets.erase(bullets.begin() + i-1);
+        //}
+        bullets[i]->update(elapsedTime);
+    }
+    
+    if (slashtime > 10){
+        slashing = false;
+    }
+    if (slashing){
+        slashtime++;
+    }
 };
 
 
