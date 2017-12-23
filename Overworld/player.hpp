@@ -24,6 +24,7 @@ private:
     float y;
     float xoffset;
     float yoffset;
+    bool ready;
     sf::Vector2f direction;
     sf::Sprite charsprite;
     sf::Sprite headsprite;
@@ -35,6 +36,9 @@ public:
     sf::Sprite* getheadsprite();
     sf::Vector2f getposition();
     std::string gettext();
+    void enterFight();
+    void exitFight();
+    bool isReady();
     void move(float xchange, float ychange, std::vector< std::vector<player*> >* spritemap);
     void moveto(sf::Vector2f coord);
     void talk(textbox *text, std::vector< std::vector<player*> >* spritemap);

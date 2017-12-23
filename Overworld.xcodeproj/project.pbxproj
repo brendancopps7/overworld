@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C629C69A1F6A34B400BE74BE /* bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C629C6981F6A34B400BE74BE /* bullet.cpp */; };
+		C6363E8C1FEDB4F40061B63C /* PlayerStandIn.png in Resources */ = {isa = PBXBuildFile; fileRef = C6363E8B1FEDB4F40061B63C /* PlayerStandIn.png */; };
+		C6363E8E1FEDBEC90061B63C /* FighterStandIn.png in Resources */ = {isa = PBXBuildFile; fileRef = C6363E8D1FEDBEC90061B63C /* FighterStandIn.png */; };
+		C6363E901FEDC0120061B63C /* FighterArmStandIn.png in Resources */ = {isa = PBXBuildFile; fileRef = C6363E8F1FEDC0120061B63C /* FighterArmStandIn.png */; };
+		C6363E921FEE18B70061B63C /* Bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = C6363E911FEE18B70061B63C /* Bullet.png */; };
 		C650F5831F23B53D00F4AF87 /* fighter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C650F5811F23B53D00F4AF87 /* fighter.cpp */; };
 		C694028B1E0E5A1D001EAF9C /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = C694028A1E0E5A1D001EAF9C /* ResourcePath.mm */; };
 		C694028E1E0E5A1D001EAF9C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C694028D1E0E5A1D001EAF9C /* main.cpp */; };
@@ -20,9 +25,16 @@
 		C6BF562D1EF499130042F98F /* npc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6BF562B1EF499130042F98F /* npc.cpp */; };
 		C6BF56311EF4BF4B0042F98F /* vertsea 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BF56301EF4BF4B0042F98F /* vertsea 1.png */; };
 		C6BF56341EF742D00042F98F /* textbox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6BF56321EF742D00042F98F /* textbox.cpp */; };
+		C6FB3BEF1F6B749A0033BDAB /* realtimesprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6FB3BED1F6B749A0033BDAB /* realtimesprite.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C629C6981F6A34B400BE74BE /* bullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bullet.cpp; sourceTree = "<group>"; };
+		C629C6991F6A34B400BE74BE /* bullet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = bullet.hpp; sourceTree = "<group>"; };
+		C6363E8B1FEDB4F40061B63C /* PlayerStandIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerStandIn.png; sourceTree = "<group>"; };
+		C6363E8D1FEDBEC90061B63C /* FighterStandIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FighterStandIn.png; sourceTree = "<group>"; };
+		C6363E8F1FEDC0120061B63C /* FighterArmStandIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FighterArmStandIn.png; sourceTree = "<group>"; };
+		C6363E911FEE18B70061B63C /* Bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bullet.png; sourceTree = "<group>"; };
 		C650F5811F23B53D00F4AF87 /* fighter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fighter.cpp; sourceTree = "<group>"; };
 		C650F5821F23B53D00F4AF87 /* fighter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = fighter.hpp; sourceTree = "<group>"; };
 		C69402851E0E5A1C001EAF9C /* Overworld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overworld.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +54,8 @@
 		C6BF56301EF4BF4B0042F98F /* vertsea 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vertsea 1.png"; sourceTree = "<group>"; };
 		C6BF56321EF742D00042F98F /* textbox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = textbox.cpp; sourceTree = "<group>"; };
 		C6BF56331EF742D00042F98F /* textbox.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = textbox.hpp; sourceTree = "<group>"; };
+		C6FB3BED1F6B749A0033BDAB /* realtimesprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = realtimesprite.cpp; sourceTree = "<group>"; };
+		C6FB3BEE1F6B749A0033BDAB /* realtimesprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = realtimesprite.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +88,7 @@
 		C69402871E0E5A1D001EAF9C /* Overworld */ = {
 			isa = PBXGroup;
 			children = (
+				C6363E911FEE18B70061B63C /* Bullet.png */,
 				C694028A1E0E5A1D001EAF9C /* ResourcePath.mm */,
 				C694028C1E0E5A1D001EAF9C /* ResourcePath.hpp */,
 				C694028D1E0E5A1D001EAF9C /* main.cpp */,
@@ -83,6 +98,10 @@
 				C6BF562C1EF499130042F98F /* npc.hpp */,
 				C694029D1E0E5C0E001EAF9C /* player.cpp */,
 				C694029E1E0E5C0E001EAF9C /* player.hpp */,
+				C629C6981F6A34B400BE74BE /* bullet.cpp */,
+				C629C6991F6A34B400BE74BE /* bullet.hpp */,
+				C6FB3BED1F6B749A0033BDAB /* realtimesprite.cpp */,
+				C6FB3BEE1F6B749A0033BDAB /* realtimesprite.hpp */,
 				C650F5811F23B53D00F4AF87 /* fighter.cpp */,
 				C650F5821F23B53D00F4AF87 /* fighter.hpp */,
 				C694028F1E0E5A1D001EAF9C /* Resources */,
@@ -93,8 +112,11 @@
 		C694028F1E0E5A1D001EAF9C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C6363E8D1FEDBEC90061B63C /* FighterStandIn.png */,
+				C6363E8B1FEDB4F40061B63C /* PlayerStandIn.png */,
 				C6BF56301EF4BF4B0042F98F /* vertsea 1.png */,
 				C69402A91E218B2B001EAF9C /* sprite_1.png */,
+				C6363E8F1FEDC0120061B63C /* FighterArmStandIn.png */,
 				C69402901E0E5A1D001EAF9C /* cute_image.jpg */,
 				C69402921E0E5A1D001EAF9C /* nice_music.ogg */,
 				C69402A41E1E1FB7001EAF9C /* vertsea.png */,
@@ -164,9 +186,13 @@
 			files = (
 				C69402AA1E218B2B001EAF9C /* sprite_1.png in Resources */,
 				C69402971E0E5A1D001EAF9C /* icon.png in Resources */,
+				C6363E8C1FEDB4F40061B63C /* PlayerStandIn.png in Resources */,
 				C6BF56311EF4BF4B0042F98F /* vertsea 1.png in Resources */,
+				C6363E921FEE18B70061B63C /* Bullet.png in Resources */,
 				C69402A51E1E1FB7001EAF9C /* vertsea.png in Resources */,
 				C69402951E0E5A1D001EAF9C /* sansation.ttf in Resources */,
+				C6363E901FEDC0120061B63C /* FighterArmStandIn.png in Resources */,
+				C6363E8E1FEDBEC90061B63C /* FighterStandIn.png in Resources */,
 				C69402931E0E5A1D001EAF9C /* nice_music.ogg in Resources */,
 				C69402911E0E5A1D001EAF9C /* cute_image.jpg in Resources */,
 			);
@@ -195,10 +221,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C629C69A1F6A34B400BE74BE /* bullet.cpp in Sources */,
 				C694028E1E0E5A1D001EAF9C /* main.cpp in Sources */,
 				C694028B1E0E5A1D001EAF9C /* ResourcePath.mm in Sources */,
 				C6BF562D1EF499130042F98F /* npc.cpp in Sources */,
 				C650F5831F23B53D00F4AF87 /* fighter.cpp in Sources */,
+				C6FB3BEF1F6B749A0033BDAB /* realtimesprite.cpp in Sources */,
 				C6BF56341EF742D00042F98F /* textbox.cpp in Sources */,
 				C694029F1E0E5C0E001EAF9C /* player.cpp in Sources */,
 			);

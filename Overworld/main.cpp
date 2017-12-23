@@ -143,6 +143,7 @@ int overworld(sf::RenderWindow &window, int location)
             
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Return){
                 //one.talk(&text1, &spritemap);
+                one.enterFight();
             }
         }
 
@@ -164,7 +165,6 @@ int overworld(sf::RenderWindow &window, int location)
         //If location of player is (3,3), draw the string, with a textbox behind it.
         if(spritemap[3][3] == &one){
             text.makeVisible();
-            fighting(window);
         }
         else{
             if(text.isVisible())
@@ -173,9 +173,9 @@ int overworld(sf::RenderWindow &window, int location)
             }
         }
         
-        if(spritemap[6][6] == &one){
+        if(spritemap[13][7] == &one && one.isReady()){
+            one.exitFight();
             fighting(window);
-            return 0;
         }
         
         text.draw(window);
@@ -198,7 +198,7 @@ void fighting(sf::RenderWindow &window){
     float a= SCALE*(13*.5/3);
     background.scale(a, a);
     
-    fighter one(WINDOW_WIDTH, WINDOW_HEIGHT);
+    fighter one(WINDOW_WIDTH, WINDOW_HEIGHT, sf::Mouse::getPosition(window));
     
     
     while (window.isOpen())
@@ -242,6 +242,23 @@ void fighting(sf::RenderWindow &window){
             
             if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space){
                 one.jump();
+            }
+            
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::J) {
+                one.shoot();
+            }
+            
+            if(event.type == sf::Event::MouseMoved){
+                one.aim(sf::Mouse::getPosition(window));
+            }
+            
+            if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left){
+                one.aim(sf::Mouse::getPosition(window));
+                one.shoot();
+            }
+            
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::LShift){
+                return;
             }
         }
         

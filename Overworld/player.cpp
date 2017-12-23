@@ -19,15 +19,15 @@ player::player(float width, float height, std::vector< std::vector<player*> >* s
     
     //Deal with the positioning of the main character
     //This is the positioning that will change whenever the sprite moves;
-    xoffset = -.25*64;
-    yoffset = -.5*64;
-    float charscale = 1.5;
+    xoffset = 0;
+    yoffset = -32;
+    float charscale = 4;
     x=x_*64 + xoffset;
     y=y_*64 + yoffset;
     spritemap->at(x_).at(y_) = this;
     
     //Load the texture and main character sprite from file
-    if (!chartexture.loadFromFile(resourcePath() + "sprite_1.png")) {
+    if (!chartexture.loadFromFile(resourcePath() + "PlayerStandIn.png")) {
         return EXIT_FAILURE;
     }
     charsprite.setTexture(chartexture);
@@ -43,6 +43,8 @@ player::player(float width, float height, std::vector< std::vector<player*> >* s
     headsprite.setTexture(chartexture);
     headsprite.setPosition(headscale*xoffset,screenheight-(2*64));
     headsprite.scale(headscale*charscale, headscale*charscale);
+    
+    ready=false;
 };
 
 sf::Sprite player::getcharsprite(){
@@ -60,6 +62,18 @@ sf::Vector2f player::getposition(){
 
 std::string player::gettext(){
     return "Here is some text";
+}
+
+void player::enterFight(){
+    ready = true;
+}
+
+void player::exitFight(){
+    ready = false;
+}
+
+bool player::isReady(){
+    return ready;
 }
 
 void player::move(float xchange, float ychange, std::vector< std::vector<player*> >* spritemap){
